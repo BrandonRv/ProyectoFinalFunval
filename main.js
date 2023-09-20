@@ -118,7 +118,7 @@ function showTasks(filterType) {
 
       if (filterType === 'completadas') {
         const spann = document.createElement('a');
-        spann.classList.add('fa-regular', 'fa-trash-can');
+        spann.classList.add('fa-regular fa-trash-can');
         spann.setAttribute('onclick', `deleteTask('${tarea}')`);
         taskBodyDiv.appendChild(spann);
       }
