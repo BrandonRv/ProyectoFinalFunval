@@ -1,0 +1,107 @@
+body {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: none;
+    align-items: none; 
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: rgb(255, 255, 255);
+    padding: 40px;
+    margin: 0 auto; /* Centrar el contenido en el contenedor */
+}
+
+.tab-box {
+    display: flex;
+    border-bottom: 3px solid rgba(229,229,229);
+    align-items: center;
+}
+
+.btn-all {
+    height: 2px;
+    font-size: 15px;
+    color: #3473b7;
+    background: none;
+    border: none;
+    padding: 2px;
+    cursor: pointer;
+    margin: 50px;/* Espacio entre los botones */
+    justify-content: center;
+    align-items: center;
+}
+.line {
+    position: absolute;
+    top: 223px;
+    height: 5px;
+    background-color: #4581ce;
+    border-radius: 10px; 
+    transition: all .4s ease-in-out;
+}
+
+/* #activacion {
+    background-color: #beafaf95;
+} */
+
+.btn-all.activo {
+    color: #000000;
+    transition: all .4s ease-in-out; 
+}
+
+.centradito {
+    text-align: center;
+}
+
+.agregarTarea input {
+
+        padding: 20px;
+        border: 2px solid rgba(229,229,229);;
+        background-color: #ffffff;
+        color: #000000;
+        border-radius: 10px;
+        margin-right: 10px;
+        width: 300px;
+        transition: all .4s ease-in-out; 
+} 
+
+.allz {
+    transition: all .9s ease-in-out; 
+}
+
+.btn256 {
+    padding-top: 16px;    
+    padding-bottom: 16px; 
+    padding-left: 26px;   
+    padding-right: 26px; 
+    border-radius: 15px;
+    background-color: #066cd8;
+    color: #ffffff;
+    font-size: 17px;
+    border: none;
+    transition: all .9s ease-in-out; 
+
+}
+.btn-danger{
+    color:  #ffffff;
+    padding-top: 16px;    
+    padding-bottom: 16px; 
+    padding-left: 26px;   
+    padding-right: 26px; 
+    border-radius: 15px;
+    display: none;
+    background-color: #d34141;
+    border-radius: 15px;
+    border: none;
+    float: right;
+}
+
+.fa-trash {
+    margin-left: left;
+    float: right;
+    color: #000000;
+}
+
+.completadas {
+    text-decoration: line-through;
+  }

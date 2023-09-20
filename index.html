@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./main.js" defer></script>
+  <script src="http://kit.fontawesome.com/9fa9845ee1.js" crossorigin=“anonymous”></script>
+  <link rel="stylesheet" href="style.css">
+  <title>#Todo App</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="centradito">
+      <h1 style="font-size: 40px;">#todo</h1>
+      <div class="tab-box">
+        <button id="all-btn" class="btn-all" style="margin-bottom: 30px;">All</button>
+        <button id="active-btn" class="btn-all" style="margin-bottom: 30px;">Active</button>
+        <button id="completed-btn" class="btn-all" style="margin-bottom: 30px;">Completed</button>
+        <div class="line"></div>
+      </div>
+    </div>
+    <div class="contenido-caja">
+      <div class="contenido-check">
+        <br>
+        <form id="formTask">
+          <div id="tareasADD" class="agregarTarea">
+            <input id="todo-input" type="text" class="form-control form-control-lg" placeholder="Agrega Nueva Tarea">
+            <button id="todo-button" type="submit" class="btn256">Add</button>
+          </div>
+        </form>
+        <div id="allz" class="active1">
+          <br>
+          <div id="lista-tarea">
+            <!-- aquí van a ir las vistas por cada botón, Puedes Usar el display:none -->
+          </div>
+          <br>
+          <br>
+        <button id="borrarrALL" onclick="deleteAll()" class="btn-danger">Delete All</button>
+    </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
