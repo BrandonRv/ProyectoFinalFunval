@@ -8,7 +8,6 @@ document.getElementById('formTask').addEventListener('submit', addTask);
 const tareasCheck = document.querySelectorAll('.contenido-check');
 const listaTarea = document.getElementById('lista-tarea');
 
-
 tabs.forEach((tab, index) => {
   tab.addEventListener('click', () => {
     tabs.forEach(tab => {
@@ -45,93 +44,72 @@ tabs.forEach((tab, index) => {
   });
 });
 
-/* Los siguientes nombres de funciones son una sugerencia de funciones que necesitarás en tu programa,
-sin embargo, no te limites solo a estas funciones. Crea tantas como consideres necesarias.
-
-La estructura de cada objeto "tarea" es la siguiente:
-
-{
-  id: 1,
-  title: "tarea",
-  completed: false
-}
-
-*/
-
-
-/////////////// FUNCION PARA ACTUALIZAR EL LOCALSTORAGE//////////////////
-
 function updateLocalStorage(tasks) {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-
-///////////FUNCION OARA MOSTRAR TODAS LAS TAREAS///////////////////////////
-
 function showTasks(filterType) {
-  const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
-  listaTarea.innerHTML = '';
-
-  if (tasks) {
-    tasks.forEach(task => {
-      if (filterType === 'activas' && task.completada) {
-        return; 
-      }
-      if (filterType === 'completadas' && !task.completada) {
-        return; 
-      }
-
-      const tarea = task.tarea;
-      const completada = task.completada;
-
-      const taskDiv = document.createElement('div');
-      taskDiv.classList.add('tarjeta');
-
-      const taskBodyDiv = document.createElement('div');
-      taskBodyDiv.classList.add('card-body');
-
-      const space = document.createElement('br');
-
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.classList.add('checkboxTarea');
-      checkbox.checked = completada;
-
-      const taskText = document.createElement('span');
-      taskText.textContent = " " + tarea;
-
-      if (completada) {
-        taskText.classList.add('completadas');
-      }
-
-      checkbox.addEventListener('change', () => {
-        const isChecked = checkbox.checked;
-        task.completada = isChecked;
-        updateLocalStorage(tasks); 
-        showTasks(filterType); 
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+  
+    listaTarea.innerHTML = '';
+  
+    if (tasks) {
+      tasks.forEach(task => {
+        if (filterType === 'activas' && task.completada) {
+          return; 
+        }
+        if (filterType === 'completadas' && !task.completada) {
+          return; 
+        }
+  
+        const tarea = task.tarea;
+        const completada = task.completada;
+  
+        const taskDiv = document.createElement('div');
+        taskDiv.classList.add('tarjeta');
+  
+        const taskBodyDiv = document.createElement('div');
+        taskBodyDiv.classList.add('card-body');
+  
+        const space = document.createElement('br');
+  
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.classList.add('checkboxTarea');
+        checkbox.checked = completada;
+  
+        const taskText = document.createElement('span');
+        taskText.textContent = " " + tarea;
+  
+        if (completada) {
+          taskText.classList.add('completadas');
+        }
+  
+        checkbox.addEventListener('change', () => {
+          const isChecked = checkbox.checked;
+          task.completada = isChecked;
+          updateLocalStorage(tasks); 
+          showTasks(filterType); 
+        });
+  
+        taskBodyDiv.appendChild(space);
+        taskBodyDiv.appendChild(checkbox);
+        taskBodyDiv.appendChild(taskText);
+  
+        if (filterType === 'completadas') {
+          const spann = document.createElement('a');
+          spann.classList.add('fa-solid', 'fa-trash');
+          spann.setAttribute('onclick', `deleteTask('${tarea}')`);
+          taskBodyDiv.appendChild(spann);
+        }
+  
+        taskDiv.appendChild(taskBodyDiv);
+        listaTarea.appendChild(taskDiv);
       });
-
-      taskBodyDiv.appendChild(space);
-      taskBodyDiv.appendChild(checkbox);
-      taskBodyDiv.appendChild(taskText);
-
-      if (filterType === 'completadas') {
-        const spann = document.createElement('a');
-        spann.classList.add('fa-regular fa-trash');
-        spann.setAttribute('onclick', `deleteTask('${tarea}')`);
-        taskBodyDiv.appendChild(spann);
-      }
-
-      taskDiv.appendChild(taskBodyDiv);
-      listaTarea.appendChild(taskDiv);
-    });
+    }
   }
-}
+  
 
-
-
-// Función para añadir una nueva tarea
 function addTask(e) {
   e.preventDefault();
 
@@ -162,12 +140,6 @@ function addTask(e) {
   showTasks('all');
 }
 
-// Función para marcar una tarea como completada o imcompleta (Puede ser la misma función)
-function completeTask() {
-
-}
-
-// Función para borrar una tarea
 function deleteTask(tarea) {
   let tasks = JSON.parse(localStorage.getItem('tasks'));
 
@@ -187,19 +159,7 @@ if (allBtn.classList.contains('activo')) {
 
 allBtn.classList.add('activo');
 
-// Funcion para borrar todas las tareas
 function deleteAll() {
   localStorage.removeItem('tasks');
   listaTarea.innerHTML = '';
 }
-
-// Función para filtrar tareas completadas
-function filterCompleted() {
-    
-}
-
-// Función para filtrar tareas incompletas
-function filterUncompleted() {
-
-}
-
