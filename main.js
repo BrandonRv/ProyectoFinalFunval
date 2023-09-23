@@ -100,6 +100,7 @@ function showTasks(filterType) {
           const spann = document.createElement('a');
           spann.classList.add('fa-solid', 'fa-trash');
           spann.setAttribute('onclick', `deleteTask('${tarea}')`);
+          spann.textContent = " " + 'Borrar';
           taskBodyDiv.appendChild(spann);
         }
   
