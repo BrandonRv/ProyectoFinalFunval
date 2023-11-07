@@ -105,3 +105,7 @@ body {
 .completadas {
     text-decoration: line-through;
   }
+
+span {
+    cursor: pointer;
+}
