@@ -106,6 +106,6 @@ body {
     text-decoration: line-through;
   }
 
-span {
+a {
     cursor: pointer;
 }
