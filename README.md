@@ -1,6 +1,7 @@
 # Link 
 
 - Solution URL: https://incandescent-babka-05f6ef.netlify.app
+                https://brandonrv.github.io/ProyectoFinalFunval/
 
 - Live Site URL: https://github.com/BrandonRv/ProyectoFinalFunval/tree/main
 
